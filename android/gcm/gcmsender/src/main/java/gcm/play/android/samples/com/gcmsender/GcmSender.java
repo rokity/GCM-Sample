@@ -36,13 +36,14 @@ public class GcmSender {
             // Prepare JSON containing the GCM message content. What to send and where to send.
             JSONObject jGcmData = new JSONObject();
             JSONObject jData = new JSONObject();
-            jData.put("message", "cane");
+
+            //messagio da mandare
+            jData.put("message", "messaggio");
             // Where to send GCM message.
-            if (args.length > 1 && args[1] != null) {
-                jGcmData.put("to", args[1].trim());
-            } else {
+
+                //inserire token come indirizzo
                 jGcmData.put("to", "f_6vG33dBm4:APA91bHAyRmJtPy4HuFJP5LdHDkEFXOQXjNpUSkr5XkM3IlSc7SWRqzT6MEsKhSihxJajC-nYsUkwigNk1EVarVVqIqXF0nZqyt6DQ9WmTkMKCF8LlXEOsND6WWk8xfN_FBcAOKG0oJI");
-            }
+
             // What to send in GCM message.
             jGcmData.put("data", jData);
 
