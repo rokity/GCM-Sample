@@ -28,35 +28,20 @@ import java.net.URL;
 
 public class GcmSender {
 
-    public static final String API_KEY = "API_KEY";
+    public static final String API_KEY = "AIzaSyDIUmo8SxVB8CkL1TOBBKyEoqrzmdsTB-c";
 
     public static void main(String[] args) {
-        if (args.length < 1 || args.length > 2 || args[0] == null) {
-            System.err.println("usage: ./gradlew run -Pargs=\"MESSAGE[,DEVICE_TOKEN]\"");
-            System.err.println("");
-            System.err.println("Specify a test message to broadcast via GCM. If a device's GCM registration token is\n" +
-                    "specified, the message will only be sent to that device. Otherwise, the message \n" +
-                    "will be sent to all devices subscribed to the \"global\" topic.");
-            System.err.println("");
-            System.err.println("Example (Broadcast):\n" +
-                    "On Windows:   .\\gradlew.bat run -Pargs=\"<Your_Message>\"\n" +
-                    "On Linux/Mac: ./gradlew run -Pargs=\"<Your_Message>\"");
-            System.err.println("");
-            System.err.println("Example (Unicast):\n" +
-                    "On Windows:   .\\gradlew.bat run -Pargs=\"<Your_Message>,<Your_Token>\"\n" +
-                    "On Linux/Mac: ./gradlew run -Pargs=\"<Your_Message>,<Your_Token>\"");
-            System.exit(1);
-        }
+
         try {
             // Prepare JSON containing the GCM message content. What to send and where to send.
             JSONObject jGcmData = new JSONObject();
             JSONObject jData = new JSONObject();
-            jData.put("message", args[0].trim());
+            jData.put("message", "cane");
             // Where to send GCM message.
             if (args.length > 1 && args[1] != null) {
                 jGcmData.put("to", args[1].trim());
             } else {
-                jGcmData.put("to", "/topics/global");
+                jGcmData.put("to", "f_6vG33dBm4:APA91bHAyRmJtPy4HuFJP5LdHDkEFXOQXjNpUSkr5XkM3IlSc7SWRqzT6MEsKhSihxJajC-nYsUkwigNk1EVarVVqIqXF0nZqyt6DQ9WmTkMKCF8LlXEOsND6WWk8xfN_FBcAOKG0oJI");
             }
             // What to send in GCM message.
             jGcmData.put("data", jData);
